@@ -1,6 +1,7 @@
 from google import procesar_lote_google
 from arcGis import procesar_lote_arcgis
 from predictiveSearchQAar import procesar_lote_predictiveAR
+from predictiveSearchQAcl import procesar_lote_predictiveCL
 from locationEsriBase import procesar_lote_locationEsri
 from locationHereBase import procesar_lote_locationHere
 from locationEsriEnrich import procesar_lote_locationEsriEnrich
@@ -30,9 +31,10 @@ print(MAGENTA + BOLD + ".: BIENVENID@ AL PROCESADOR DE LOTES DE LIBRERIAS VERSI�
 print("Fecha de versión: 29/08/2024\n")
 print("OPCIÓN 1 - Procesar el lote por Google")
 print("OPCIÓN 2 - Procesar el lote por ArcGis")
-print("OPCIÓN 3 - Procesar el lote por Merlin Predictive Search AR (QA)")
-print("OPCIÓN 41 - Procesar por AWS Location Services en ESRI")
-print("OPCIÓN 42 - Procesar por AWS Location Services en HERE")
+print("OPCIÓN 30 - Procesar el lote por Merlin Predictive Search AR (QA)")
+print("OPCIÓN 31 - Procesar el lote por Merlin Predictive Search CL (QA)")
+print("OPCIÓN 40 - Procesar por AWS Location Services en ESRI")
+print("OPCIÓN 41 - Procesar por AWS Location Services en HERE")
 print("OPCIÓN 5 - Procesar por Merlin Address Perú (Prod)")
 print("OPCIÓN 6 - Procesar por Merlin Phone Perú (QAs)")
 
@@ -46,15 +48,19 @@ elif opcion == "2":
     procesar_lote_arcgis()
     mensaje_saludo()
     input(YELLOW + "Presione cualquier tecla para cerrar" + RESET) 
-elif opcion == '3':
+elif opcion == '30':
     procesar_lote_predictiveAR()
     mensaje_saludo()
     input(YELLOW + "Presione cualquier tecla para cerrar" + RESET)
-elif opcion == '41':
+elif opcion == '31':
+    procesar_lote_predictiveCL()
+    mensaje_saludo()
+    input(YELLOW + "Presione cualquier tecla para cerrar" + RESET)
+elif opcion == '40':
     procesar_lote_locationEsriEnrich()
     mensaje_saludo()
     input(YELLOW + "Presione cualquier tecla para cerrar" + RESET)
-elif opcion == '42':
+elif opcion == '41':
     procesar_lote_locationHereEnrich()
     mensaje_saludo()    
     input(YELLOW + "Presione cualquier tecla para cerrar" + RESET)

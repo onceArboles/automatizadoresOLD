@@ -7,7 +7,7 @@ import os
 from tokenSecurityQA import *
 from comunes import *
 
-def procesar_lote_predictiveAR():
+def procesar_lote_predictiveCL():
     #VARIABLES COMUNES
     token = pedir_token()
     libro = openpyxl.load_workbook('./Lotes a procesar/entrada_predictiveQAcl.xlsx')
@@ -18,7 +18,7 @@ def procesar_lote_predictiveAR():
     hojaParametros = libroParametros.active
     
     #en cabeecera_archivo se definen los campos de la cabecera del archivo de salida
-    cabecera_archivo = ['predAR-id','predAR-#order','predAR-singleLine','predAR-street','predAR-houseNumber','predAR-postalCode','predAR-latitude','predAR-longitude','predAR-label','predAR-locationType','predAR-suggestedItem','predAR-maps','predAR-geoType','predAR-level1','predAR-level2','predAR-level3','predAR-level4','predAR-level5','predAR-Json']
+    cabecera_archivo = ['predCL-id','predCL-#order','predCL-singleLine','predCL-street','predCL-houseNumber','predCL-postalCode','predCL-latitude','predCL-longitude','predCL-label','predCL-locationType','predCL-suggestedItem','predCL-maps','predCL-geoType','predCL-level1','predCL-level2','predCL-level3','predCL-level4','predCL-level5','predCL-Json']
     lista_json = [] # En esta variable se almacenan cada uno de las respuestas de Búsqueda Predictiva
     lista_id = [] # En esta lista se almacenan todos los ID y Single Line que se leyeron
     #--------------------------------
@@ -33,7 +33,7 @@ def procesar_lote_predictiveAR():
         lista_json.append(jsonSalida)
         print("Se han procesado " + str(fila-1) + " de " + str(max_filas-1) + " registros")  
     print(hora_actual() + " - Se han procesado correctamente con Búsqueda Predictiva " + str(len(lista_json)) + " registros.\nEspere a la generación del archivo de salida por favor")
-    generar_archivo_predictiveAR('Lote_procesado_predictiveAR - ', cabecera_archivo, lista_json, lista_id)
+    generar_archivo_predictiveAR('Lote_procesado_predictiveCL - ', cabecera_archivo, lista_json, lista_id)
     input("Presione cualquier tecla para finalizar")
 
 
@@ -90,6 +90,3 @@ def grabar_linea_predictiveAR(una_lista_json, una_lista_id, una_hoja_grabando):
             
             fila_escribiendo = fila_escribiendo + 1
     print(hora_actual() + " - Se han volcado " + str(fila_escribiendo-2) + " registros en el archivo")  
-    
-
-procesar_lote_predictiveAR()
